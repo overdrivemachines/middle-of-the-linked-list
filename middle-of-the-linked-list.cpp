@@ -14,9 +14,47 @@ struct ListNode {
 
 ListNode* createLinkedList(vector<int> values);
 void printLinkedList(ListNode* head);
+ListNode* middleNode(ListNode* head);
 
 int main(int argc, char const* argv[]) {
+  vector<int> v1 = {5, 32, 1, 2, 93, 75, 89};
+  vector<int> v2 = {6, 2, 30, 34};
+
+  ListNode* list1 = createLinkedList(v1);
+  ListNode* list2 = createLinkedList(v2);
+  ListNode *mlist1, *mlist2;  // middle node of list1 and li
+
+  printLinkedList(list1);
+  printLinkedList(list2);
+
+  // Get middle nodes
+  mlist1 = middleNode(list1);
+  mlist2 = middleNode(list2);
+
+  // Print list from middle nodes
+  printLinkedList(mlist1);
+  printLinkedList(mlist2);
+
   return 0;
+}
+
+ListNode* middleNode(ListNode* head) {
+  ListNode* node;
+  int totalNodes = 0;
+
+  // if list has one or no nodes
+  if ((head == nullptr) || (head->next == nullptr))
+    return head;
+
+  node = head;
+  while (node != nullptr) {
+    node = node->next;
+    totalNodes++;
+  }
+
+  cout << "total nodes: " << totalNodes << "\n";
+
+  return head;
 }
 
 // Create Linked list given a vector of int values
