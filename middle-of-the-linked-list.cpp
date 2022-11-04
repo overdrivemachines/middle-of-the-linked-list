@@ -52,9 +52,16 @@ ListNode* middleNode(ListNode* head) {
     totalNodes++;
   }
 
-  cout << "total nodes: " << totalNodes << "\n";
+  // cout << "total nodes: " << totalNodes << "\n";
 
-  return head;
+  node = head;
+  for (int i = 1; i <= (totalNodes / 2); i++) {
+    node = node->next;
+  }
+
+  // cout << "middle node value: " << node->val << endl;
+
+  return node;
 }
 
 // Create Linked list given a vector of int values
